@@ -1,0 +1,55 @@
+{
+  "name": "bpt-proj-tracking-api",
+  "version": "1.0.0",
+  "description": "BPT Project Tracker",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js/postgres": "^1.12.0",
+    "@sap/xsenv": "^5.4.0",
+    "@sap/xssec": "^4.4.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.10.0",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "pg": "^8.12.0",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds": "^8.7.2"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "postgres",
+        "impl": "@cap-js/postgres",
+        "pool": {
+          "max": 20,
+          "min": 5,
+          "acquireTimeoutMillis": 20000,
+          "idleTimeoutMillis": 30000
+        },
+        "credentials": {
+          "database": "proj_track",
+          "host": "localhost",
+          "port": 5432,
+          "user": "postgres",
+          "password": "root"
+        }
+      }
+    },
+    "folders": {
+      "db": "./db",
+      "srv": "./srv/*"
+    }
+  }
+}
